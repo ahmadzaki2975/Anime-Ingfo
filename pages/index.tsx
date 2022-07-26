@@ -44,8 +44,14 @@ const Home: NextPage = () => {
             return(
               <div key={anime.animeId} className="flex flex-col items-center bg-white p-2 rounded-md">
                 <img className="w-3/4 md:w-full aspect-[3/4] rounded" src={anime.animeImg}/>
-                <p className="text-center">{anime.animeTitle}</p>
-                <p>{}</p>
+                <p className="text-center font-bold">{anime.animeTitle}</p>
+                <div className="genres">
+                  {anime.genres.map((genre:string) => {
+                    return(
+                      <div>{genre}</div>
+                    )
+                  })}
+                </div>
               </div>
             )
           })}
