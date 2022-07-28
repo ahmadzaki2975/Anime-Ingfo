@@ -1,15 +1,12 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import Image from "next/image";
-import { type } from "os";
-import { stringify } from "querystring";
 import { useEffect, useState } from "react";
 import { Navbar } from "../components/Navbar";
-import styles from "../styles/Home.module.css";
+import { Menu } from "../components/Menu"
 import raznimeApi from "./api/raznime";
 
 const Home: NextPage = () => {
-  const [ongoing, setOngoing] = useState<Array<any>>([{}])
+  const [ongoing, setOngoing] = useState<Array<any>>([{animeId:1}])
 
   async function fetchAPI() {
     raznimeApi
@@ -35,6 +32,7 @@ const Home: NextPage = () => {
       </Head>
       <nav>
         <Navbar />
+        <Menu />
       </nav>
       <main className="bg-slate-100">
         <div className="banner w-full h-96 bg-gradient-to-br from-violet-500 to-fuchsia-500"></div>
@@ -42,15 +40,10 @@ const Home: NextPage = () => {
         <div className="grid grid-cols-2 gap-5 mx-5 md:grid-cols-4 pb-10">
           {ongoing.map(anime => {
             return(
-              <div key={anime.animeId} className="flex flex-col items-center bg-white p-2 rounded-md">
+              <div key={anime.animeId} className="card cursor-pointer flex flex-col items-center bg-white p-2 rounded-md">
                 <img className="w-3/4 md:w-full aspect-[3/4] rounded" src={anime.animeImg}/>
-                <p className="text-center font-bold">{anime.animeTitle}</p>
+                <p  className="anime-title text-center font-bold">{anime.animeTitle}</p>
                 <div className="genres">
-                  {anime.genres.map((genre:string) => {
-                    return(
-                      <div>{genre}</div>
-                    )
-                  })}
                 </div>
               </div>
             )

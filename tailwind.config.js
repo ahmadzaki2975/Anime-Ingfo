@@ -9,6 +9,9 @@ module.exports = {
       aspectRatio: {
         '3/4': '3 / 4',
       },
+      height: {
+        '100vh' : '100vh'
+      }
     },
   },
   plugins: [],
