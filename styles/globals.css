@@ -41,6 +41,10 @@ a {
   transform: translateX(100%) !important;
 }
 
+main {
+  padding-top: 8rem;
+}
+
 /* @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
