@@ -32,23 +32,26 @@ export default function animeDetailsIndex() {
       <main>
         <div className="flex flex-col items-center">
           <h1 className="text-lg">Search Anime</h1>
-          <form onSubmit={() => {fetchSearchAPI()}}>
+          <form className="w-full px-10" onSubmit={() => {fetchSearchAPI()}} >
             <input
               type="text"
-              className="w-60 h-10 border-blue-800 border-2 rounded"
+              className="text-center w-full h-10 border-blue-800 border-2 rounded"
               onChange={(e) => {
+                e.preventDefault();
                 setSearchKey(e.target.value);
+                fetchSearchAPI();
               }}
+
             />
-            <div
+            {/* <div
               className="button cursor-pointer bg-blue-200 mt-5 p-2 text-center rounded"
               onClick={() => {
                 fetchSearchAPI();
               }}
             >
               Search
-            </div>
-            <div className="search-result">
+            </div> */}
+            <div className="search-result mt-5 flex flex-col items-center gap-4">
               {
                 searchResult.map(anime => {
                   return(
