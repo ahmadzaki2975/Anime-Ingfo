@@ -46,7 +46,7 @@ const Home: NextPage = () => {
           })}
         </div>
       </main>
-      <footer className="mt-10 p-5 text-center bg-blue-500">
+      <footer className="p-5 text-center bg-blue-500">
         &copy; INGFOOS
       </footer>
     </div>
