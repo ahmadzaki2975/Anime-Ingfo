@@ -2,6 +2,8 @@
 
 We(e)bsite to view information and details about animes.
 
+API used: [Raznime](https://raznime.herokuapp.com) by [romaaji](https://github.com/romaaji)
+
 ## Features
 
 Search anime, link to episode stream.
