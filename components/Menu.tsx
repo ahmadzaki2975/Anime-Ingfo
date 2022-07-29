@@ -14,12 +14,12 @@ export const Menu = () => {
             <a>Search</a>
           </Link>
         </li>
-        {/* <li>
-          <Link href={"#"}>
-            <a>Recently Released</a>
+        <li>
+          <Link href={"/upcoming-movies"}>
+            <a>Upcoming Movies</a>
           </Link>
         </li>
-        <li>
+        {/* <li>
           <Link href={"#"}>
             <a>Popular</a>
           </Link>

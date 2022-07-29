@@ -4,7 +4,7 @@ import { useState } from "react";
 import raznimeApi from "../api/raznime";
 import Link from "next/link";
 
-export default function animeDetailsIndex() {
+export default function AnimeDetailsIndex() {
   const [searchKey, setSearchKey] = useState("");
   const [searchResult, setSearchResult] = useState([{
     animeId: '',

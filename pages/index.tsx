@@ -2,21 +2,24 @@ import type { NextPage } from "next";
 import Head from "next/head";
 import { useEffect, useState } from "react";
 import { Navbar } from "../components/Navbar";
-import { Menu } from "../components/Menu"
+import { Menu } from "../components/Menu";
 import raznimeApi from "./api/raznime";
+import Image from "next/image";
+import Link from "next/link";
+import { AnimeCard } from "../components/AnimeCard";
 
 const Home: NextPage = () => {
-  const [ongoing, setOngoing] = useState<Array<any>>([{animeId:1}])
+  const [ongoing, setOngoing] = useState<Array<any>>([{ animeId: 1, animeImg:'/'}]);
 
   async function fetchAPI() {
     raznimeApi
       .get("/top-airing")
       .then((response) => {
         console.log(response.data);
-        setOngoing(response.data)
+        setOngoing(response.data);
       })
       .catch((err) => console.log(err));
-      console.log(ongoing);
+    console.log(ongoing);
   }
 
   useEffect(() => {
@@ -36,17 +39,14 @@ const Home: NextPage = () => {
       </nav>
       <main className="bg-slate-100">
         <div className="banner w-full h-96 bg-gradient-to-br from-violet-500 to-fuchsia-500"></div>
-        <h1 className="text-3xl text-center mb-5 mt-10 font-bold">Top Ongoing Animes</h1>
+        <h1 className="text-3xl text-center mb-5 mt-10 font-bold">
+          Top Ongoing Animes
+        </h1>
         <div className="grid grid-cols-2 gap-5 mx-5 md:grid-cols-4 pb-10">
-          {ongoing.map(anime => {
-            return(
-              <div key={anime.animeId} className="card cursor-pointer flex flex-col items-center bg-white p-2 rounded-md">
-                <img className="w-3/4 md:w-full aspect-[3/4] rounded" src={anime.animeImg}/>
-                <p  className="anime-title text-center font-bold">{anime.animeTitle}</p>
-                <div className="genres">
-                </div>
-              </div>
-            )
+          {ongoing.map((anime) => {
+            return (
+              <AnimeCard anime={anime} />
+            );
           })}
         </div>
       </main>

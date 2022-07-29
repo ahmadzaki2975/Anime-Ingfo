@@ -39,6 +39,7 @@ a {
 
 .menu {
   transition: transform 300ms ease-out;
+  z-index: 9;
 }
 
 .inactive {
