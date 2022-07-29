@@ -45,7 +45,7 @@ const Home: NextPage = () => {
         <div className="grid grid-cols-2 gap-5 mx-5 md:grid-cols-4 pb-10">
           {ongoing.map((anime) => {
             return (
-              <AnimeCard anime={anime} />
+              <AnimeCard anime={anime} key={anime.animeId}/>
             );
           })}
         </div>
