@@ -6,7 +6,7 @@ import { Menu } from "../../components/Menu";
 import { Navbar } from "../../components/Navbar";
 import raznimeApi from "../api/raznime";
 
-export default function animeDetails() {
+export default function AnimeDetails() {
   const router = useRouter();
   const animeTitle = router.query.animeTitle;
   const [anime, setAnime] = useState({
