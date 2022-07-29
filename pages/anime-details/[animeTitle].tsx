@@ -59,6 +59,8 @@ export default function AnimeDetails() {
           <p className="px-10 mt-4 text-justify">{anime.synopsis}</p>
           <h3 className="font-bold mt-3">Other Names:</h3>
           <p className="px-10 text-center">{anime.otherNames}</p>
+          <h3 className="font-bold mt-3">Release Date:</h3>
+          <p className="px-10 text-center">{anime.releasedDate}</p>
           <h2 className="font-bold mt-6 mb-3">Episodes</h2>
           <ul className="grid grid-cols-10 gap-2 w-full px-5 place-items-center">
             {anime.episodesList.map((episode) => {
