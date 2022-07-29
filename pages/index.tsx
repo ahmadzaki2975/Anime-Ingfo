@@ -9,9 +9,11 @@ import Link from "next/link";
 import { AnimeCard } from "../components/AnimeCard";
 
 const Home: NextPage = () => {
-  const [ongoing, setOngoing] = useState<Array<any>>([{ animeId: 1, animeImg:'/'}]);
+  const [ongoing, setOngoing] = useState<Array<any>>([
+    { animeId: 1, animeImg: "/" },
+  ]);
 
-  async function fetchAPI() {
+  useEffect(() => {
     raznimeApi
       .get("/top-airing")
       .then((response) => {
@@ -20,10 +22,6 @@ const Home: NextPage = () => {
       })
       .catch((err) => console.log(err));
     console.log(ongoing);
-  }
-
-  useEffect(() => {
-    fetchAPI();
   }, []);
 
   return (
@@ -44,9 +42,7 @@ const Home: NextPage = () => {
         </h1>
         <div className="grid grid-cols-2 gap-5 mx-5 md:grid-cols-4 pb-10">
           {ongoing.map((anime) => {
-            return (
-              <AnimeCard anime={anime} key={anime.animeId}/>
-            );
+            return <AnimeCard anime={anime} key={anime.animeId} />;
           })}
         </div>
       </main>

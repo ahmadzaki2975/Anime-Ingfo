@@ -40,7 +40,7 @@ export default function AnimeDetails() {
       </header>
       <main>
         <div className="flex flex-col items-center">
-          <div className="w-1/2 aspect-[3/4] z-0">
+          <div className="w-1/2 aspect-[3/4] z-0 mt-10">
             <Image
               src={anime.animeImg}
               width={600}
@@ -51,14 +51,14 @@ export default function AnimeDetails() {
           <h1 className="text-3xl font-bold text-center px-5">
             {anime.animeTitle}
           </h1>
-          {anime.status !== "Ongoing" ? (
+          {anime.status !== "Completed" ? (
             <h2 className="text-lg font-bold text-blue-400">{anime.status}</h2>
           ) : (
             <h2 className="text-lg font-bold text-green-700">{anime.status}</h2>
           )}
           <p className="px-10 mt-4 text-justify">{anime.synopsis}</p>
           <h3 className="font-bold mt-3">Other Names:</h3>
-          <p className="px-10">{anime.otherNames}</p>
+          <p className="px-10 text-center">{anime.otherNames}</p>
           <h2 className="font-bold mt-6 mb-3">Episodes</h2>
           <ul className="grid grid-cols-10 gap-2 w-full px-5 place-items-center">
             {anime.episodesList.map((episode) => {
