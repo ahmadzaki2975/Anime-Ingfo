@@ -1,3 +1,4 @@
+import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -34,6 +35,9 @@ export default function AnimeDetails() {
 
   return (
     <>
+    <Head>
+      <title>{anime.animeTitle} - Anime Ingfo</title>
+    </Head>
       <header>
         <Navbar />
         <Menu />

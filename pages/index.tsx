@@ -7,21 +7,22 @@ import raznimeApi from "./api/raznime";
 import Image from "next/image";
 import Link from "next/link";
 import { AnimeCard } from "../components/AnimeCard";
+import { EpisodeCard } from "../components/EpisodeCard";
 
 const Home: NextPage = () => {
-  const [ongoing, setOngoing] = useState<Array<any>>([
+  const [recentRelease, setRecentRelease] = useState<Array<any>>([
     { animeId: 1, animeImg: "/" },
   ]);
 
   useEffect(() => {
     raznimeApi
-      .get("/top-airing")
+      .get("/recent-release")
       .then((response) => {
         console.log(response.data);
-        setOngoing(response.data);
+        setRecentRelease(response.data);
       })
       .catch((err) => console.log(err));
-    console.log(ongoing);
+    console.log(recentRelease);
   }, []);
 
   return (
@@ -38,11 +39,11 @@ const Home: NextPage = () => {
       <main className="bg-slate-100">
         <div className="banner w-full h-96 bg-gradient-to-br from-violet-500 to-fuchsia-500"></div>
         <h1 className="text-3xl text-center mb-5 mt-10 font-bold">
-          Top Ongoing Animes
+          Recently Released
         </h1>
         <div className="grid grid-cols-2 gap-5 mx-5 md:grid-cols-4 pb-10">
-          {ongoing.map((anime) => {
-            return <AnimeCard anime={anime} key={anime.animeId} />;
+          {recentRelease.map((episode) => {
+            return <EpisodeCard episode={episode} key={episode.animeId} />;
           })}
         </div>
       </main>

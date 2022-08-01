@@ -4,6 +4,7 @@ import { useState } from "react";
 import raznimeApi from "../api/raznime";
 import Link from "next/link";
 import Image from "next/image";
+import Head from "next/head";
 
 export default function AnimeDetailsIndex() {
   const [searchKey, setSearchKey] = useState("");
@@ -59,7 +60,11 @@ export default function AnimeDetailsIndex() {
             <div className="search-result mt-5 flex flex-col items-center gap-4">
               {searchResult.map((anime) => {
                 return (
-                  <div key={anime.animeId} className="hover:underline text-center">
+                  <>
+                    <Head>
+                      <title>Search - Anime Ingfo</title>
+                    </Head>
+                    <div key={anime.animeId} className="hover:underline text-center">
                     <Link href={`/anime-details/${anime.animeId}`}>
                       <a>
                         {/* <div className="w-3/4">
@@ -69,6 +74,7 @@ export default function AnimeDetailsIndex() {
                       </a>
                     </Link>
                   </div>
+                  </>
                 );
               })}
             </div>
