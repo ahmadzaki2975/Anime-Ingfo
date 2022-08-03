@@ -41,7 +41,7 @@ const Home: NextPage = () => {
         <h1 className="text-3xl text-center mb-5 mt-10 font-bold">
           Recently Released
         </h1>
-        <div className="grid grid-cols-2 gap-5 mx-5 md:grid-cols-4 pb-10">
+        <div className="grid grid-cols-2 gap-5 mx-5 md:grid-cols-5 pb-10">
           {recentRelease.map((episode) => {
             return <EpisodeCard episode={episode} key={episode.animeId} />;
           })}
