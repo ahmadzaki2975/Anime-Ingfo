@@ -20,7 +20,6 @@ export const EpisodeCard = (props: any) => {
           {props.episode.animeTitle}
         </p>
         <h1>Episode {props.episode.episodeNum} [{props.episode.subOrDub}]</h1>
-        <div className="genres"></div>
       </div>
     </a>
   );

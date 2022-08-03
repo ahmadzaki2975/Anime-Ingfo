@@ -11,7 +11,7 @@ import { EpisodeCard } from "../components/EpisodeCard";
 
 const Home: NextPage = () => {
   const [recentRelease, setRecentRelease] = useState<Array<any>>([
-    { animeId: 1, animeImg: "/" },
+    { episodeId: 1, animeImg: "/" },
   ]);
 
   useEffect(() => {
@@ -37,13 +37,15 @@ const Home: NextPage = () => {
         <Menu />
       </nav>
       <main className="bg-slate-100">
-        <div className="banner w-full h-96 bg-gradient-to-br from-violet-500 to-fuchsia-500"></div>
+        <div className="banner flex flex-col items-center justify-center w-full h-96 bg-gradient-to-br from-violet-500 to-fuchsia-500">
+          <h1 className="text-4xl text-white">Welcome to Anime Ingfo</h1>
+        </div>
         <h1 className="text-3xl text-center mb-5 mt-10 font-bold">
           Recently Released
         </h1>
-        <div className="grid grid-cols-2 gap-5 mx-5 md:grid-cols-5 pb-10">
+        <div className="grid grid-cols-2 gap-5 mx-5 md:grid-cols-5 sm:grid-cols-3 pb-10">
           {recentRelease.map((episode) => {
-            return <EpisodeCard episode={episode} key={episode.animeId} />;
+            return <EpisodeCard episode={episode} key={episode.episodeId} />;
           })}
         </div>
       </main>

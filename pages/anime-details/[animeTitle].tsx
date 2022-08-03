@@ -44,7 +44,7 @@ export default function AnimeDetails() {
       </header>
       <main>
         <div className="flex flex-col items-center sm:flex-row-reverse">
-          <div className="w-1/2 aspect-[3/4] z-0 mt-10 sm:w-1/2 sm:p-10 sm:pt-10 sm:m-5 rounded bg-slate-200">
+          <div className="w-1/2 aspect-[3/4] z-0 mt-10 sm:w-1/2 sm:p-10 sm:pt-10 sm:m-5 rounded bg-slate-200 lg:w-1/2">
             <Image
               src={anime.animeImg}
               width={600}
@@ -113,14 +113,14 @@ export default function AnimeDetails() {
           </div>
         </div>
         <div className="episode">
-          <h2 className="font-bold mt-6 mb-3 text-center">Episodes</h2>
+          <h2 className="font-bold text-lg mt-6 mb-3 text-center">Episodes</h2>
           <ul className="ep-list grid grid-cols-10 gap-2 w-full px-5 place-items-center max-h-40 overflow-y-hidden">
             {anime.episodesList.map((episode) => {
               return (
                 <a
                   href={episode.episodeUrl}
                   key={episode.episodeId}
-                  className="hover:underline"
+                  className="hover:underline hover:bg-blue-200 p-2 font-bold"
                 >
                   <li className="text-blue-400 text-center">
                     {episode.episodeNum}

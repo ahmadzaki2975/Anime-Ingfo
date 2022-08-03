@@ -39,7 +39,7 @@ const UpcomingMovies: NextPage = () => {
         <h1 className="text-3xl text-center mb-5 mt-10 font-bold">
           Upcoming Anime Movies
         </h1>
-        <div className="grid grid-cols-2 gap-5 mx-5 md:grid-cols-4 pb-10">
+        <div className="grid grid-cols-2 gap-5 mx-5 md:grid-cols-5 sm:grid-cols-3 pb-10">
           {upcomingMovies.map((anime) => {
             return <AnimeCard anime={anime} key={anime.animeId} />;
           })}
