@@ -4,8 +4,7 @@ import { useEffect, useState } from "react";
 import { Navbar } from "../components/Navbar";
 import { Menu } from "../components/Menu";
 import raznimeApi from "./api/raznime";
-import Image from "next/image";
-import Link from "next/link";
+import CardLoading from "../components/CardLoading";
 import { AnimeCard } from "../components/AnimeCard";
 import { EpisodeCard } from "../components/EpisodeCard";
 
@@ -17,11 +16,11 @@ const Home: NextPage = () => {
   useEffect(() => {
     raznimeApi
       .get("/recent-release")
-      .then((response:any) => {
+      .then((response: any) => {
         console.log(response.data);
         setRecentRelease(response.data);
       })
-      .catch((err:any) => console.log(err));
+      .catch((err: any) => console.log(err));
     console.log(recentRelease);
   }, []);
 
@@ -44,14 +43,22 @@ const Home: NextPage = () => {
           Recently Released
         </h1>
         <div className="grid grid-cols-2 gap-5 mx-5 md:grid-cols-5 sm:grid-cols-3 pb-10">
-          {recentRelease.map((episode) => {
-            return <EpisodeCard episode={episode} key={episode.episodeId} />;
-          })}
+          {recentRelease.length !== 1 ? (
+            recentRelease.map((episode) => {
+              return <EpisodeCard episode={episode} key={episode.episodeId} />;
+            })
+          ) : (
+            <>
+              <CardLoading />
+              <CardLoading />
+              <CardLoading />
+              <CardLoading />
+              <CardLoading />
+            </>
+          )}
         </div>
       </main>
-      <footer className="p-5 text-center bg-blue-500">
-        &copy; INGFOOS
-      </footer>
+      <footer className="p-5 text-center bg-blue-500">&copy; INGFOOS</footer>
     </div>
   );
 };
