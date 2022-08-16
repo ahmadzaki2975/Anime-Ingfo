@@ -18,11 +18,11 @@ const UpcomingMovies: NextPage = () => {
   useEffect(() => {
     raznimeApi
       .get("/anime-movies")
-      .then((response) => {
+      .then((response:any) => {
         console.log(response.data);
         setUpcomingMovies(response.data);
       })
-      .catch((err) => console.log(err));
+      .catch((err:any) => console.log(err));
     console.log(upcomingMovies);
   }, []);
 

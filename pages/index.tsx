@@ -17,11 +17,11 @@ const Home: NextPage = () => {
   useEffect(() => {
     raznimeApi
       .get("/recent-release")
-      .then((response) => {
+      .then((response:any) => {
         console.log(response.data);
         setRecentRelease(response.data);
       })
-      .catch((err) => console.log(err));
+      .catch((err:any) => console.log(err));
     console.log(recentRelease);
   }, []);
 
